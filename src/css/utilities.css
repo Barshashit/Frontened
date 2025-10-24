@@ -1,0 +1,9 @@
+/* Accordion custom shadow on hover */
+.accordion-item:hover {
+  @apply shadow-lg;
+}
+
+/* Smooth icon rotation */
+.accordion-icon {
+  @apply transition-transform duration-300;
+}
