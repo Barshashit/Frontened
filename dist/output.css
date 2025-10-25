@@ -60,6 +60,8 @@ ul li a:hover {
   display: flex;
   align-items: center;
   gap: 16px;
+  color: #fff;
+  font-size: 0.9rem;
 }
 
 select {
@@ -478,6 +480,7 @@ select {
   border-radius: 30px;
   border: none;
   outline: none;
+  color: black;
 }
 
 .footer-column.newsletter button {
@@ -540,33 +543,38 @@ select {
   align-items: center;
   flex-wrap: wrap;
   background-color: #000;
-  /* optional, based on your design */
+  /* optional */
   padding: 10px 40px;
 }
 
-/* --- Fix Social Links Row --- */
+/* --- Social Icons Row --- */
 
-.footer-bottom .social-links {
-  display: flex !important;
-  flex-direction: row !important;
+.footer-bottom .social-icons {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
 }
 
-.footer-bottom .social-links a {
+.footer-bottom .social-icons a {
   display: flex;
   align-items: center;
-  gap: 6px;
   text-decoration: none;
-  color: white;
 }
 
-.footer-bottom .social-links a img {
-  width: 20px;
-  height: 20px;
+.footer-bottom .social-icons a img {
+  width: 25px;
+  height: 25px;
   -o-object-fit: contain;
      object-fit: contain;
+  border-radius: 50%;
+  /* optional for round icons */
+  transition: transform 0.3s ease;
+}
+
+.footer-bottom .social-icons a img:hover {
+  transform: scale(1.1);
 }
 
 /* --- Responsive tweaks for search container --- */
@@ -1165,6 +1173,14 @@ select {
   color: #555;
   line-height: 1.5;
   margin-bottom: 20px;
+}
+
+.payment-logos {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* or center if you want them centered */
+  gap: 2px;
 }
 
 .payment-logos img {
