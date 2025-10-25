@@ -1,1130 +1,1170 @@
 /* --- RESET & BASE --- */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
-      body {
-        background-color: #f3f4f6;
-        color: #111;
-      }
-      
-      
-
-      /* --- NAVBAR --- */
-       
-      nav {
-        background-color: #1f2937;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 30px;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .logo img {
-        width: 24px;
-        height: 24px;
-      }
-
-      .logo span {
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #fff;
-      }
-
-      ul {
-        list-style: none;
-        display: flex;
-        gap: 24px;
-      }
-
-      ul li a {
-        text-decoration: none;
-        color: #d1d5db;
-        font-size: 0.9rem;
-        transition: color 0.2s ease;
-      }
-
-      ul li a:hover {
-        color: #facc15;
-      }
-
-      .nav-buttons {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      select {
-        background: transparent;
-        border: none;
-        color: #d1d5db;
-        font-size: 0.9rem;
-        cursor: pointer;
-        outline: none;
-      }
-
-      .theme-toggle {
-        background-color: white;
-        color: black;
-        border: none;
-        border-radius: 50%;
-        width: 34px;
-        height: 34px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-      }
-
-      .signin-btn {
-        background-color: white;
-        color: black;
-        padding: 6px 16px;
-        border: none;
-        border-radius: 9999px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .signin-btn:hover {
-        background-color: #facc15;
-      }
-
-      .menu-icon {
-        background-color: #facc15;
-        color: black;
-        padding: 8px;
-        border-radius: 8px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .menu-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      @media (max-width: 768px) {
-        ul {
-          display: none;
-        }
-      }
-
-      /* --- HERO SECTION --- */
-      .hero {
-        position: relative;
-        background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
-          no-repeat center center/cover;
-        height: 85vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.45);
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-content h1 {
-        font-size: 2.6rem;
-        font-weight: 700;
-        margin-bottom: 15px;
-      }
-
-      .hero-content p {
-        font-size: 1rem;
-        color: #e5e7eb;
-        margin-bottom: 30px;
-      }
-
-      /* --- SEARCH SECTION BELOW HERO --- */
-      .search-container {
-        background: #fff;
-        color: #111;
-        max-width: 950px;
-        margin: -60px auto 0;
-        border-radius: 20px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        padding: 25px 30px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-
-      .search-tabs {
-        display: flex;
-        justify-content: start;
-        gap: 20px;
-        margin-bottom: 25px;
-      }
-
-      .search-tabs button {
-        background: transparent;
-        border: none;
-        font-weight: 500;
-        font-size: 0.95rem;
-        padding: 8px 20px;
-        border-radius: 30px;
-        cursor: pointer;
-        color: #555;
-      }
-
-      .search-tabs button.active {
-        background: black;
-        color: white;
-      }
-
-      .search-form {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        align-items: center;
-        gap: 10px;
-      }
-
-      .form-field {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .form-field label {
-        font-size: 0.8rem;
-        color: #666;
-      }
-
-      .form-field select,
-      .form-field input {
-        border: none;
-        border-bottom: 1px solid #ddd;
-        padding: 8px 4px;
-        outline: none;
-        font-size: 0.9rem;
-        color: #111;
-        background: transparent;
-      }
-
-      .search-btn {
-        background: black;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        padding: 12px 24px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      .search-btn:hover {
-        background: #333;
-      }
-
-      /* --- FEATURES SECTION --- */
-      .features {
-        background-color: #fff;
-        color: #111;
-        padding: 60px 30px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        text-align: center;
-      }
-
-      .feature {
-        background: #f9fafb;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
-      }
-
-      .feature:hover {
-        transform: translateY(-8px);
-      }
-
-      .feature img {
-        width: 60px;
-        margin-bottom: 15px;
-      }
-
-      .feature h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      .feature p {
-        font-size: 0.9rem;
-        color: #555;
-      }
-
-      /* --- PARTNERS & OFFERS SECTION --- */
-      .partners-section {
-        padding: 60px 80px;
-        background: #fff;
-      }
-
-      .partners-logos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        flex-wrap: wrap;
-        margin-bottom: 50px;
-      }
-
-      .partners-logos img {
-        height: 30px;
-        opacity: 0.8;
-        transition: transform 0.3s ease;
-      }
-
-      .partners-logos img:hover {
-        transform: scale(1.1);
-        opacity: 1;
-      }
-
-      .offers {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-      }
-
-      .offer-card {
-        position: relative;
-        width: 300px;
-        height: 200px;
-        border-radius: 12px;
-        overflow: hidden;
-        color: #000;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .offer-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      }
-
-      .offer-card.blue {
-        background: linear-gradient(120deg, #3b82f6, #2563eb);
-        color: #fff;
-      }
-
-      .offer-card.yellow {
-        background: linear-gradient(120deg, #fde047, #facc15);
-      }
-
-      .offer-card.image-bg {
-        background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb")
-          center/cover no-repeat;
-        color: #000;
-      }
-
-      .text h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 12px;
-      }
-
-      .text .tag {
-        background-color: #fef08a;
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin-bottom: 8px;
-        display: inline-block;
-      }
-
-      .text button {
-        background: #facc15;
-        border: none;
-        padding: 6px 16px;
-        border-radius: 9999px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
-
-      .text button:hover {
-        background: #f59e0b;
-      }
-
-      .offer-card img {
-        height: 100%;
-        object-fit: contain;
-        pointer-events: none;
-      }
-
-      @media (max-width: 900px) {
-        .offers {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .partners-section {
-          padding: 40px 20px;
-        }
-      }
-
-      /* --- FOOTER --- */
-      .footer {
-        background-color: #000;
-        color: #fff;
-        padding: 60px 80px 30px;
-        font-size: 0.9rem;
-      }
-
-      .footer-top {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 40px;
-        border-bottom: 1px solid #222;
-        padding-bottom: 40px;
-      }
-
-      .footer .logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-
-      .footer .logo img {
-        width: 28px;
-        height: 28px;
-      }
-
-      .footer .logo span {
-        font-weight: 600;
-        font-size: 1.2rem;
-      }
-
-      .footer-column h4 {
-        font-weight: 600;
-        margin-bottom: 16px;
-        font-size: 1rem;
-      }
-
-      .footer-column ul {
-        list-style: none;
-        display: flow;
-        padding: 0;
-      }
-
-      .footer-column ul li {
-        margin-bottom: 8px;
-      }
-
-      .footer-column ul li a {
-        color: #aaa;
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-
-      .footer-column ul li a:hover {
-        color: #facc15;
-      }
-
-      .footer-column.newsletter form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .footer-column.newsletter input {
-        padding: 10px 15px;
-        border-radius: 30px;
-        border: none;
-        outline: none;
-      }
-
-      .footer-column.newsletter button {
-        background: #facc15;
-        color: #000;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 30px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      .footer-column.newsletter button:hover {
-        background: #fbbf24;
-      }
-
-      /* --- Middle Info Boxes --- */
-      .footer-middle {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-        margin: 40px 0;
-        border-bottom: 1px solid #222;
-        padding-bottom: 40px;
-      }
-
-      .footer-box {
-        flex: 1;
-        min-width: 250px;
-        background: #111;
-        padding: 20px 25px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .footer-box .icon {
-        font-size: 1.6rem;
-      }
-
-      .footer-box p {
-        color: #ccc;
-        margin-bottom: 6px;
-      }
-
-      .footer-box h3 {
-        font-size: 1.1rem;
-        color: #fff;
-      }
-
-      /* --- Bottom --- */
-      .footer-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      /* --- Responsive tweaks for search container --- */
-      @media (max-width: 900px) {
-        .search-container {
-          padding: 18px 20px;
-          max-width: 940px;
-          margin-top: 40px;
-          margin-bottom: 30px;
-        }
-
-        .search-form {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
-        }
-
-        /* Make last column elements span two columns on medium screens */
-        .search-form .form-field:nth-child(4),
-        .search-form .form-field:nth-child(5),
-        .search-btn {
-          grid-column: span 2;
-        }
-
-        .search-tabs {
-          gap: 12px;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          padding-bottom: 6px;
-        }
-
-        .search-tabs button {
-          white-space: nowrap;
-          flex: 0 0 auto;
-        }
-
-        .search-btn {
-          justify-self: end;
-          width: auto;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .search-container {
-          padding: 14px;
-          border-radius: 14px;
-          margin-top: 40px;
-          margin-bottom: 30px;
-        }
-
-        .search-form {
-          grid-template-columns: 1fr;
-        }
-
-        .search-form .form-field,
-        .search-btn {
-          grid-column: auto;
-          width: 100%;
-        }
-
-        .search-tabs {
-          display: flex;
-          gap: 8px;
-          overflow-x: auto;
-          padding-bottom: 6px;
-        }
-
-        .search-tabs button {
-          padding: 6px 12px;
-          font-size: 0.9rem;
-          white-space: nowrap;
-          flex: 0 0 auto;
-        }
-
-        .search-btn {
-          display: block;
-          width: 100%;
-          margin-top: 6px;
-          justify-self: stretch;
-        }
-
-        .search-container,
-        .search-form {
-          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-        }
-      }
-
-      .travila-promo {
-        background: #c3cddc;
-        border-radius: 20px;
-        padding: 50px 60px;
-        margin: auto;
-        max-width: 1100px;
-      }
-
-      .promo-content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-      }
-
-      .promo-left {
-        flex: 1;
-        min-width: 300px;
-      }
-
-      .promo-right {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-      }
-
-      .promo-right img {
-        width: 100%;
-        border-radius: 15px;
-        object-fit: cover;
-      }
-
-      .badge {
-        background: white;
-        color: #000;
-        font-size: 0.8rem;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-weight: 500;
-        display: inline-block;
-        margin-bottom: 15px;
-      }
-
-      .promo-left h2 {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 12px;
-      }
-
-      .promo-left p {
-        color: #444;
-        margin-bottom: 25px;
-        max-width: 400px;
-      }
-
-      .app-buttons {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        margin-bottom: 40px;
-      }
-
-      .app-buttons img {
-        height: 45px;
-        cursor: pointer;
-        transition: transform 0.3s;
-      }
-
-      .app-buttons img:hover {
-        transform: scale(1.05);
-      }
-
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 25px;
-        border-top: 1px solid #ddd;
-        padding-top: 25px;
-      }
-
-      .stats h3 {
-        color: #000;
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
-
-      .stats p {
-        color: #555;
-        font-size: 0.85rem;
-        margin-top: 5px;
-      }
-
-      @media (max-width: 900px) {
-        .travila-promo {
-          padding: 40px 25px;
-        }
-
-        .promo-content {
-          flex-direction: column-reverse;
-          text-align: center;
-        }
-
-        .promo-left p {
-          margin: 0 auto 25px;
-        }
-
-        .app-buttons {
-          justify-content: center;
-        }
-      }
-
-      .travila-stats {
-        background: #fff;
-        padding: 40px 20px;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-      }
-
-      .stats-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        flex-wrap: wrap;
-        gap: 30px;
-      }
-
-      .stat-box h3 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 6px;
-      }
-
-      .stat-box p {
-        color: #555;
-        font-size: 0.9rem;
-        line-height: 1.4;
-      }
-
-      @media (max-width: 768px) {
-        .stats-container {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .stat-box h3 {
-          font-size: 1.6rem;
-        }
-      }
-
-      /* --- FLIGHT BOOKING SECTION --- */
-      .flight-booking {
-        background: #fff;
-        padding: 60px 40px;
-        display: flex;
-        justify-content: center;
-      }
-
-      .flight-container {
-        display: flex;
-        gap: 30px;
-        max-width: 1200px;
-        width: 100%;
-        align-items: stretch;
-      }
-
-      .flight-list {
-        flex: 3;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        min-height: 0;
-        overflow: auto;
-      }
-
-      .flight-card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #f9fafb;
-        border-radius: 10px;
-        padding: 18px 24px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease;
-      }
-
-      .flight-card:hover {
-        transform: translateY(-3px);
-      }
-
-      .flight-info {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .airline-logo {
-        width: 38px;
-        height: auto;
-      }
-
-      .flight-info h4 {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #111;
-      }
-
-      .flight-info p {
-        font-size: 0.85rem;
-        color: #555;
-      }
-
-      .flight-prices {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        text-align: right;
-        font-size: 0.9rem;
-      }
-
-      .book-btn {
-        background: #111;
-        color: #fff;
-        border: none;
-        padding: 10px 18px;
-        border-radius: 9999px;
-        cursor: pointer;
-        font-weight: 500;
-        transition: background 0.3s ease;
-      }
-
-      .book-btn:hover {
-        background: #333;
-      }
-
-      /* --- FILTER SIDEBAR --- */
-      .flight-filters {
-        flex: 1;
-        background: #f9fafb;
-        padding: 24px;
-        border-radius: 12px;
-        align-items: stretch;
-        height: fit-content;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      .flight-filters h4 {
-        font-size: 1rem;
-        margin-bottom: 12px;
-        font-weight: 600;
-      }
-
-      .filter-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 20px;
-      }
-
-      .filter-tags button {
-        border: 1px solid #ddd;
-        background: white;
-        border-radius: 20px;
-        padding: 6px 14px;
-        font-size: 0.8rem;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-
-      .filter-tags button:hover {
-        background: #000;
-        color: #fff;
-        border-color: #000;
-      }
-
-      .airline-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .airline-list label {
-        font-size: 0.85rem;
-        color: #333;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      /* --- Responsive --- */
-      @media (max-width: 900px) {
-        .flight-container {
-          flex-direction: column;
-        }
-
-        .flight-filters {
-          order: -1;
-        }
-
-        .flight-list {
-          width: 100%;
-        }
-      }
-
-      /* --- POPULAR DESTINATIONS SECTION --- */
-      .popular-destinations {
-        background: #fff;
-        padding: 80px 40px 0;
-        font-family: "Inter", sans-serif;
-      }
-
-      .popular-destinations .container {
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      .section-header {
-        text-align: left;
-        margin-bottom: 30px;
-      }
-
-      .section-header h2 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 6px;
-      }
-
-      .section-header p {
-        color: #666;
-      }
-
-      .filter-buttons {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 30px;
-      }
-
-      .filter-buttons button {
-        border: none;
-        background: #f5f5f5;
-        padding: 8px 14px;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-
-      .filter-buttons button:hover {
-        background: #111;
-        color: #fff;
-      }
-
-      .destinations-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-      }
-
-      .destination-card {
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s;
-      }
-
-      .destination-card:hover {
-        transform: translateY(-4px);
-      }
-
-      .destination-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-      }
-
-      .destination-info {
-        padding: 15px;
-      }
-
-      .destination-info h4 {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 5px;
-      }
-
-      .destination-info p {
-        font-size: 0.85rem;
-        color: #666;
-      }
-
-      /* Promo Card */
-      .destination-card.promo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f9fafb;
-      }
-
-      .promo-content {
-        text-align: center;
-        padding: 20px;
-      }
-
-      .promo-content h4 {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-      }
-
-      .promo-content button {
-        background: #000;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-        padding: 8px 18px;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      .promo-content button:hover {
-        background: #333;
-      }
-
-      /* --- FLIGHT EXPERIENCE SECTION --- */
-      .flight-experience {
-        margin-top: 80px;
-        background: #e8f1fb;
-        background-image: repeating-linear-gradient(
-          45deg,
-          #e8f1fb,
-          #e8f1fb 10px,
-          #dce9f7 10px,
-          #dce9f7 20px
-        );
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
-        padding: 80px 40px;
-        flex-wrap: wrap;
-      }
-
-      .flight-experience .images {
-        display: flex;
-        gap: 15px;
-      }
-
-      .flight-experience .col {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .flight-experience img {
-        width: 220px;
-        height: auto;
-        border-radius: 12px;
-        object-fit: cover;
-      }
-
-      .flight-experience .text {
-        max-width: 500px;
-      }
-
-      .flight-experience .tag {
-        display: inline-block;
-        background: #fff;
-        color: #111;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin-bottom: 10px;
-      }
-
-      .flight-experience h3 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 12px;
-      }
-
-      .flight-experience p {
-        color: #555;
-        line-height: 1.5;
-        margin-bottom: 20px;
-      }
-
-      .payment-logos img {
-        height: 28px;
-        margin-right: 12px;
-        object-fit: contain;
-      }
-
-      /* --- Responsive --- */
-      @media (max-width: 900px) {
-        .flight-experience {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .flight-experience .images {
-          justify-content: center;
-        }
-
-        .flight-experience .text {
-          max-width: 100%;
-        }
-      }
-
-      /* ...existing code... */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f3f4f6;
+  color: #111;
+}
+
+/* --- NAVBAR --- */
+
+nav {
+  background-color: #1f2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  width: 24px;
+  height: 24px;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+ul li a:hover {
+  color: #facc15;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+select {
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-toggle {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.signin-btn {
+  background-color: white;
+  color: black;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signin-btn:hover {
+  background-color: #facc15;
+}
+
+.menu-icon {
+  background-color: #facc15;
+  color: black;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  ul {
+    display: none;
+  }
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  background: url("/assests/images/heroimage.png") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 120px;
+}
+
+.hero-content h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: #e5e7eb;
+  margin-bottom: 30px;
+}
+
+/* --- SEARCH SECTION inside HERO --- */
+.search-container {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #111;
+  max-width: 950px;
+  margin: 50px auto 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 25px 30px;
+  z-index: 3;
+}
+
+.search-tabs {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.search-tabs button {
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 8px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #555;
+}
+
+.search-tabs button.active {
+  background: black;
+  color: white;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.form-field select,
+.form-field input {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 4px;
+  outline: none;
+  font-size: 0.9rem;
+  color: #111;
+  background: transparent;
+}
+
+.search-btn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-btn:hover {
+  background: #333;
+}
+
+/* --- FEATURES SECTION --- */
+.features {
+  background-color: #fff;
+  color: #111;
+  padding: 60px 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.feature {
+  background: #f9fafb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+  /* ✅ Center content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+}
+
+.feature img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* --- PARTNERS & OFFERS SECTION --- */
+.partners-section {
+  padding: 80px 80px;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.partners-logos img {
+  height: 30px;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.partners-logos img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.offers {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.offer-card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.offer-card.blue {
+  background: linear-gradient(120deg, #3b82f6, #2563eb);
+  color: #fff;
+}
+
+.offer-card.yellow {
+  background: linear-gradient(120deg, #fde047, #facc15);
+}
+
+.offer-card.image-bg {
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb")
+    center/cover no-repeat;
+  color: #000;
+}
+
+.text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.text .tag {
+  background-color: #fef08a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.text button {
+  background: #facc15;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.text button:hover {
+  background: #f59e0b;
+}
+
+.offer-card img {
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .offers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .partners-section {
+    padding: 40px 20px;
+  }
+}
+
+/* --- FOOTER --- */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 80px 30px;
+  font-size: 0.9rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 40px;
+}
+
+.footer .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer .logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.footer .logo span {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.footer-column h4 {
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  display: flow;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-column ul li a:hover {
+  color: #facc15;
+}
+
+.footer-column.newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column.newsletter input {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+
+.footer-column.newsletter button {
+  background: #facc15;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-column.newsletter button:hover {
+  background: #fbbf24;
+}
+
+/* --- Middle Info Boxes --- */
+.footer-middle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 40px 0;
+  border-bottom: 1px solid #222;
+  padding-bottom: 40px;
+}
+
+.footer-box {
+  flex: 1;
+  min-width: 250px;
+  background: #111;
+  padding: 20px 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-box .icon {
+  font-size: 1.6rem;
+}
+
+.footer-box p {
+  color: #ccc;
+  margin-bottom: 6px;
+}
+
+.footer-box h3 {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* --- Bottom --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #000; /* optional, based on your design */
+  padding: 10px 40px;
+}
+
+/* --- Fix Social Links Row --- */
+.footer-bottom .social-links {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-bottom .social-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-bottom .social-links a img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+
+/* --- Responsive tweaks for search container --- */
+@media (max-width: 900px) {
+  .search-container {
+    padding: 18px 20px;
+    max-width: 940px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .search-form {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Make last column elements span two columns on medium screens */
+  .search-form .form-field:nth-child(4),
+  .search-form .form-field:nth-child(5),
+  .search-btn {
+    grid-column: span 2;
+  }
+
+  .search-tabs {
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  .search-tabs button {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .search-btn {
+    justify-self: end;
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    padding: 14px;
+    border-radius: 14px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form .form-field,
+  .search-btn {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .search-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .search-tabs button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .search-btn {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    justify-self: stretch;
+  }
+
+  .search-container,
+  .search-form {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.travila-promo {
+  position: relative;
+  background: url("/assests/images/promo-bg.jpg");
+  background: #c3cddc;
+  border-radius: 20px;
+  margin: auto;
+  max-width: 1100px;
+}
+
+.promo-content {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.promo-left {
+  flex: 1;
+  min-width: 300px;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.promo-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: stretch; /* allow image to fill height */
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.promo-right img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.badge {
+  background: white;
+  color: #000;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.promo-left h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.promo-left p {
+  color: #444;
+  margin-bottom: 25px;
+  max-width: 400px;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.app-buttons img {
+  height: 45px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.app-buttons img:hover {
+  transform: scale(1.05);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 25px;
+  border-top: 1px solid #ddd;
+  padding-top: 25px;
+}
+
+.stats h3 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stats p {
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+@media (max-width: 900px) {
+  .travila-promo {
+    padding: 40px 25px;
+  }
+
+  .promo-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .promo-left p {
+    margin: 0 auto 25px;
+  }
+
+  .app-buttons {
+    justify-content: center;
+  }
+}
+
+.travila-stats {
+  background: #fff;
+  padding: 40px 20px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.stats-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.stat-box h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.stat-box p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stat-box h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* --- FLIGHT BOOKING SECTION --- */
+.flight-booking {
+  background: #fff;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.flight-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.flight-list {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 0;
+  overflow: auto;
+}
+
+.flight-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 18px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.flight-card:hover {
+  transform: translateY(-3px);
+}
+
+.flight-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.airline-logo {
+  width: 38px;
+  height: auto;
+}
+
+.flight-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.flight-info p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.flight-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.book-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #333;
+}
+
+/* --- FILTER SIDEBAR --- */
+.flight-filters {
+  flex: 1;
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 12px;
+  align-items: stretch;
+  height: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.flight-filters h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-tags button {
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-tags button:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.airline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.airline-list label {
+  font-size: 0.85rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .flight-container {
+    flex-direction: column;
+  }
+
+  .flight-filters {
+    order: -1;
+  }
+
+  .flight-list {
+    width: 100%;
+  }
+}
+
+/* --- POPULAR DESTINATIONS SECTION --- */
+.popular-destinations {
+  background: #fff;
+  padding: 80px 40px 0;
+  font-family: "Inter", sans-serif;
+}
+
+.popular-destinations .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-header {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.section-header p {
+  color: #666;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.filter-buttons button {
+  border: none;
+  background: #f5f5f5;
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-buttons button:hover {
+  background: #111;
+  color: #fff;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.destination-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.destination-info {
+  padding: 15px;
+}
+
+.destination-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.destination-info p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Promo Card */
+.destination-card.promo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+}
+
+.promo-content {
+  text-align: center;
+  padding-left: 20px;
+}
+
+.promo-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.promo-content button {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.promo-content button:hover {
+  background: #333;
+}
+
+/* --- FLIGHT EXPERIENCE SECTION --- */
+.flight-experience {
+  margin-top: 80px;
+  background: #e8f1fb;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #e8f1fb,
+    #e8f1fb 10px,
+    #dce9f7 10px,
+    #dce9f7 20px
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 80px 40px;
+  flex-wrap: wrap;
+}
+
+.flight-experience .images {
+  display: flex;
+  gap: 15px;
+}
+
+.flight-experience .col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.flight-experience img {
+  width: 220px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.flight-experience .text {
+  max-width: 500px;
+}
+
+.flight-experience .tag {
+  display: inline-block;
+  background: #fff;
+  color: #111;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.flight-experience h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.flight-experience p {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.payment-logos img {
+  height: 50px;
+
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .flight-experience {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flight-experience .images {
+    justify-content: center;
+  }
+
+  .flight-experience .text {
+    max-width: 100%;
+  }
+}
+
+/* ...existing code... */
